@@ -36,7 +36,7 @@
                            </thead>
                            <tbody>
                                 {% for pizza in order.pizzas %}
-                                <tr tr_pizza_id="{{pizza.id}}">
+                                <tr data-tr_pizza_id="{{pizza.id}}">
                                      <td>{{pizza.qty}}</td>
                                      <!-- <td><input type="number" name="qty" value="{{pizza.qty}}"></td> -->
 
@@ -59,7 +59,7 @@
                                           ${{pizza_price}}
                                      </td>
                                      <td>
-                                          <button class="remove_pizza btn btn-sm btn-danger" pizza_id="{{pizza.id}}">Remove</button>
+                                          <button class="remove_pizza btn btn-sm btn-danger" data-pizza_id="{{pizza.id}}">Remove</button>
                                      </td>
                               </tr>
                               {% endfor%}
@@ -87,7 +87,7 @@
                           </div>
                           <div class="form-row">
                                <div class="form-group col-md-5 col-sm-4">
-                                    <label for="size">SIZE</label>
+                                    <label for="size_select">SIZE</label>
                                     <select id="size_select" class="form-control" name="size">
                                         {% for size in sizes %}
                                         <option value="{{size.id}}">{{size.name}}</option>
@@ -104,7 +104,7 @@
                                </div>
                                <div class="form-group col-md-2 col-sm-2">
                                    <label for="qty">QTY</label>
-                                   <input class="form-control" type="number" name="qty" value="1">
+                                   <input id="qty" class="form-control" type="number" name="qty" value="1">
                                </div>
                           </div>
 
@@ -113,7 +113,7 @@
                               {% set topping_str=topping.name %}
                               {# set topping_str=topping_str.ljust(30,'.') #}
                               {% set topping_price="%.2f" %topping.price %}
-                              <input type="checkbox" name="topping" value="{{topping.id}}" title="{{topping.description}}"><span topping_id={{topping.id}}  class="topping_name" title="{{topping.description}}">{{topping_str}}</span><span topping_id={{topping.id}} class="topping_price">${{topping_price}}</span><br>
+                              <input type="checkbox" name="topping" value="{{topping.id}}" title="{{topping.description}}"><span data-topping_id={{topping.id}}  class="topping_name" title="{{topping.description}}">{{topping_str}}</span><span data-topping_id={{topping.id}} class="topping_price">${{topping_price}}</span><br>
                               {% endfor %}
                           </div>
                           <p id="preview_price"> </p>

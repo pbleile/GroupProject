@@ -16,7 +16,7 @@ $(function(){
             $("#fav_button").text("Made your Fav!");
             $("#fav_button").removeClass("btn-warning");
             $("#fav_button").addClass("btn-success");
-            $("#fav_button").attr("disabled", true); 
+            $("#fav_button").prop("disabled", true); 
         });
     });
 });

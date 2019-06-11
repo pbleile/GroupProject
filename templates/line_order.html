@@ -1,4 +1,4 @@
-<tr tr_pizza_id="{{pizza.id}}">
+<tr data-tr_pizza_id="{{pizza.id}}">
         <td>{{pizza.qty}}</td>
         <!-- <td><input type="number" name="qty" value="{{pizza.qty}}"></td> -->
 
@@ -21,6 +21,6 @@
              ${{pizza_price}}
         </td>
         <td>
-            <button class="remove_pizza btn btn-sm btn-danger" pizza_id="{{pizza.id}}">Remove</button>
+            <button class="remove_pizza btn btn-sm btn-danger" data-pizza_id="{{pizza.id}}">Remove</button>
         </td>
  </tr>

@@ -20,20 +20,20 @@
                          <h3 class="h4">EDIT SIZE</h3>
                          <form class="" action="/admin/{{size.id}}/update_size" method="post">
                              <div class="form-group">
-                                  <label for="top_name">Name</label>
-                                  <input type="text" class="form-control" name="name" value="{{size.name}}">
+                                  <label for="size_name">Name</label>
+                                  <input id="size_name" type="text" class="form-control" name="name" value="{{size.name}}">
                              </div>
                              <div class="form-group">
-                                  <label for="description">Description</label>
-                                  <textarea class="form-control" name="description" rows="4" cols="40">{{size.description}}</textarea>
+                                  <label for="size_description">Description</label>
+                                  <textarea id="size_description" class="form-control" name="description" rows="4" cols="40">{{size.description}}</textarea>
                              </div>
                              <div class="form-group">
-                                  <label for="top_name">Scaling</label>
-                                  <input type="text" class="form-control" name="scaling" value="{{size.scaling}}">
+                                  <label for="size_scaling">Scaling</label>
+                                  <input id="size_scaling" type="text" class="form-control" name="scaling" value="{{size.scaling}}">
                              </div>
                              <div class="form-group">
-                                  <label for="price">Price</label>
-                                  <input type="text" class="form-control" name="price" value="{{size.price}}">
+                                  <label for="size_price">Price</label>
+                                  <input id="size_price" type="text" class="form-control" name="price" value="{{size.price}}">
                              </div>
                              <input type="submit" class="btn btn-sm btn-success" value="UPDATE">
                              <a class="btn btn-sm btn-warning" href="/admin/dash#tabs-3">Back</a>

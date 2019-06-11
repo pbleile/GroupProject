@@ -47,16 +47,15 @@
                                          <tbody>
                                               <!-- add templete loop here -->
                                               {% for topping in topping_menu: %}
-                                              <tr topping_id="{{topping.id}}"></tr>
-                                                   <td><input type="checkbox" name="active-toppings-bulk" value="">
-                                                   <label for="active-toppings-bulk" row_id="{{topping.id}}"></label></td>
+                                              <tr data-topping_id="{{topping.id}}">
+                                                   <td><input type="checkbox" name="active-toppings-bulk" value=""></td>
                                                    <td contenteditable="true" class="rowData" >{{topping.name}}</td>
                                                    <td contenteditable="true" class="rowData" >{{topping.price}}</td>
                                                    <td contenteditable="true" class="rowData" >{{topping.description}}</td>
                                                    <td><a href="/update/{{topping.id}}/top" class="btn btn-sm btn-danger" >UPDATE</a></td>
                                                    <!-- <td><button type="button" id="btn_save" id="update_btn" class="btn btn-sm btn-primary">Save</button></td> -->
                                                    <!-- <td><button type="button" id="btn_cancel" class="btn btn-sm btn-secondary">Cancel</button></td> -->
-
+                                             </tr>
                                               {% endfor %}
                                               <!-- end template loops here -->
                                          </tbody>
@@ -67,16 +66,16 @@
                                     <h3 class="h4">CREATE NEW TOPPING</h3>
                                     <form id="new_topping_form" class="" action="/admin/create_topping" method="post">
                                          <div class="form-group">
-                                              <label for="top_name">Name</label>
-                                             <input type="text" class="form-control" name="top_name" value="">
+                                              <label for="topping_name">Name</label>
+                                             <input id="topping_name" type="text" class="form-control" name="top_name" value="">
                                          </div>
                                          <div class="form-group">
-                                              <label for="description">Description</label>
-                                             <textarea class="form-control" name="description" rows="4" cols="40"></textarea>
+                                              <label for="topping_description">Description</label>
+                                             <textarea id="topping_description" class="form-control" name="description" rows="4" cols="40"></textarea>
                                          </div>
                                          <div class="form-group">
-                                              <label for="price">Price</label>
-                                             <input type="text" class="form-control" name="price" value="">
+                                              <label for="topping_price">Price</label>
+                                             <input id="topping_price" type="text" class="form-control" name="price" value="">
                                          </div>
                                          <input type="submit" class="btn btn-sm btn-primary" value="ADD">
                                     </form>
@@ -103,13 +102,11 @@
                                            <tbody>
                                                 <!-- add templete loop here -->
                                                 {% for style in styles: %}
-                                                <tr style_id="{{style.id}}">
-                                                     <td><input type="checkbox" name="active-toppings-bulk" value="">
-                                                     <label for="active-toppings-bulk"></label></td>
+                                                <tr data-style_id="{{style.id}}">
+                                                     <td><input type="checkbox" name="active-toppings-bulk" value=""></td>
                                                      <td>{{style.name}}</td>
                                                      <td>{{style.description}}</td>
                                                      <td>{{style.price}}</td>
-
                                                      <td><a href="/update/{{style.id}}/style" class="btn btn-sm btn-danger">UPDATE</a></td>
                                                 </tr>
                                                 {% endfor %}
@@ -121,16 +118,16 @@
                                       <h3 class="h4">CREATE NEW Style</h3>
                                       <form id="new_style_form" class="" action="/admin/create_style" method="post">
                                            <div class="form-group">
-                                                <label for="name">Name</label>
-                                                <input type="text" class="form-control" name="name" value="">
+                                                <label for="style_name">Name</label>
+                                                <input id="style_name" type="text" class="form-control" name="name" value="">
                                            </div>
                                            <div class="form-group">
-                                                <label for="description">Description</label>
-                                                <textarea class="form-control" name="description" rows="4" cols="40"></textarea>
+                                                <label for="style_description">Description</label>
+                                                <textarea id="style_description" class="form-control" name="description" rows="4" cols="40"></textarea>
                                            </div>
                                            <div class="form-group">
-                                                <label for="price">Price</label>
-                                                <input type="text" class="form-control" name="price" value="">
+                                                <label for="style_price">Price</label>
+                                                <input id="style_price" type="text" class="form-control" name="price" value="">
                                            </div>
                                            <input type="submit" class="btn btn-sm btn-primary" value="ADD">
                                       </form>
@@ -158,14 +155,12 @@
                                            <tbody>
                                                 <!-- add templete loop here -->
                                                 {% for size in sizes: %}
-                                                <tr size_id="{{size.id}}">
-                                                     <td><input type="checkbox" name="active-toppings-bulk" value="">
-                                                     <label for="active-toppings-bulk"></label></td>
+                                                <tr data-size_id="{{size.id}}">
+                                                     <td><input type="checkbox" name="active-toppings-bulk" value=""></td>
                                                      <td>{{size.name}}</td>
                                                      <td>{{size.price}}</td>
                                                      <td>{{size.description}}</td>
                                                      <td>{{size.scaling}}</td>
-
                                                      <td><a href="/update/{{size.id}}/size" class="btn btn-sm btn-danger">UPDATE</a></td>
                                                 </tr>
                                                 {% endfor %}
@@ -177,24 +172,20 @@
                                       <h3 class="h4">CREATE NEW SIZE</h3>
                                       <form id="new_size_form" class="" action="/admin/create_size" method="post">
                                            <div class="form-group">
-                                                <label for="name">Name</label>
-                                                <input type="text" class="form-control" name="name" value="">
+                                                <label for="size_name">Name</label>
+                                                <input id="size_name" type="text" class="form-control" name="name" value="">
                                            </div>
                                            <div class="form-group">
-                                                <label for="description">Description</label>
-                                                <textarea class="form-control" name="description" rows="4" cols="40"></textarea>
-                                           </div>
-                                           <!-- <div class="form-group">
-                                                <label for="name">Scaling</label>
-                                                <input type="number" class="form-control" name="scaling" value="">
-                                           </div> -->
-                                           <div class="form-group">
-                                                <label for="price">Price</label>
-                                                <input type="text" class="form-control" name="price" value="">
+                                                <label for="size_description">Description</label>
+                                                <textarea id="size_description" class="form-control" name="description" rows="4" cols="40"></textarea>
                                            </div>
                                            <div class="form-group">
-                                                  <label for="scaling">Toppings Price Scaling</label>
-                                                  <input type="text" class="form-control" name="scaling" value="1.0">
+                                                <label for="size_price">Price</label>
+                                                <input id="size_price" type="text" class="form-control" name="price" value="">
+                                           </div>
+                                           <div class="form-group">
+                                                  <label for="size_scaling">Toppings Price Scaling</label>
+                                                  <input id="size_scaling" type="text" class="form-control" name="scaling" value="1.0">
                                              </div>
                                            <input type="submit" class="btn btn-sm btn-primary" value="ADD">
                                       </form>
@@ -213,14 +204,14 @@
                                                          <!-- <label for="active-toppings-bulk"></label> -->
                                                     </th>
                                                     <th scope="col">Order Type</th>
+                                                    <th scope="col">Action</th>
                                                </tr>
                                           </thead>
                                           <tbody>
                                                <!-- add templete loop here -->
                                                {% for type in order_types: %}
                                                <tr>
-                                                    <td><input type="checkbox" name="active-toppings-bulk" value="">
-                                                    <label for="active-toppings-bulk"></label></td>
+                                                    <td><input type="checkbox" name="active-toppings-bulk" value=""></td>
                                                     <td>{{type.name}}</td>
                                                     <td><a href="#" class="btn btn-sm btn-danger">UPDATE</a></td>
                                                </tr>
@@ -233,8 +224,8 @@
                                      <h3 class="h4">CREATE NEW ORDER TYPE</h3>
                                      <form class="" action="/admin/create_order_type" method="POST">
                                           <div class="form-group">
-                                               <label for="name">Name</label>
-                                               <input type="text" class="form-control" name="name" value="">
+                                               <label for="order_name">Name</label>
+                                               <input id="order_name" type="text" class="form-control" name="name" value="">
                                           </div>
                                           <input type="submit" class="btn btn-sm btn-primary" value="ADD">
                                      </form>

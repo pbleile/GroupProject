@@ -314,7 +314,8 @@ def get_order_total():
     customer_id=session['MyWebsite_customer_id']
     customer=Customer.get(customer_id)
     order=Order.get_entering(customer.id)
-    return str(order.total())
+    total_str="%.2f" % order.total()
+    return total_str
 
 def show_danger():
     return render_template('danger.html',hacker_ip=request.remote_addr)

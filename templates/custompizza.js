@@ -40,10 +40,10 @@ $(function(){
            var scaling=scaling_size[$("[name='size']").val()]
            //console.log(scaling);
            $(".topping_price").each(function(i){
-                //console.log($(this).attr("topping_id"));
-                //console.log(price_topping[$(this).attr("topping_id")]);
+                //console.log($(this).attr("data-topping_id"));
+                //console.log(price_topping[$(this).attr("data-topping_id")]);
                 //console.log(scaling);
-                let price=price_topping[$(this).attr("topping_id")]*scaling;
+                let price=price_topping[$(this).attr("data-topping_id")]*scaling;
                 $(this).text("$"+price.toFixed(2));
            });
       }
@@ -68,12 +68,12 @@ $(function(){
 
       // Remove a pizza from the order table
       $("tbody").on("click",".remove_pizza",function(e){
-           console.log("delete pizza " +$(this).attr("pizza_id"));
-           let pizza_id=$(this).attr("pizza_id");
+           console.log("delete pizza " +$(this).attr("data-pizza_id"));
+           let pizza_id=$(this).attr("data-pizza_id");
            $.ajax({
                 method:'POST',
                 url:"/remove/pizza",
-                data:{json: JSON.stringify({'pizza_id':$(this).attr("pizza_id")})}
+                data:{json: JSON.stringify({'pizza_id':$(this).attr("data-pizza_id")})}
            })
            .done(function(resp_data){
                 $.ajax({
@@ -83,7 +83,7 @@ $(function(){
                      $("#order_total").text("Total: $"+resp);
                 });
            });
-           $("[tr_pizza_id="+pizza_id+"]").remove();
+           $("[data-tr_pizza_id="+pizza_id+"]").remove();
       });
 
       // Add a pizza to the order

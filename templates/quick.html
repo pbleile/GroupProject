@@ -3,7 +3,7 @@
      <head>
           <meta charset="utf-8">
           <meta name="Pizza TIme" content="An intuitive food ordering app.">
-          <title>Black Belt Pizza | Ouick Order</title>
+          <title>Black Belt Pizza | Quick Order</title>
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
           <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
@@ -29,9 +29,9 @@
                               <div class="col-lg-4 col-sm-4 quick">
                                    <a href="/favorite" class="btn btn-lg my-3 btn-outline-primary">Order Favorite</a>
                                    <p>Re-order your Favorite!</p>
-                                   <ul>
                                    {% if order: %}
-                                        {{order.order_type.name}}:
+                                   <span>{{order.order_type.name}}:</span>
+                                        <ul>
                                         {% for pizza in order.pizzas %}
                                         <li>Qty {{pizza.qty}}: Size {{pizza.size.name}}, {{pizza.style.name}} crust
                                              <ul>
@@ -43,6 +43,7 @@
                                         {% endfor %}
                                    </ul>
                                    {% else %}
+                                   <ul>
                                         <li>No Favorites Yet</li>
                                    </ul>
                                    {% endif %}

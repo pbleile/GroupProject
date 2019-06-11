@@ -1,5 +1,5 @@
-<li class="section my-3 customer_order" order_id="{{order.id}}">
-    <p class="order_timer" ordered_at="{{order.updated_at}} GMT"></p>
+<li class="section my-3 customer_order" data-order_id="{{order.id}}">
+    <p class="order_timer" data-ordered_at="{{order.updated_at}} GMT"></p>
     Order #({{order.id}}): {{order.order_type.name}}:
     {{order.customer.name}} ({{order.customer.phone_number}}), {{order.customer.addresses[0].street_address}}, {{order.customer.addresses[0].city}} {{order.customer.addresses[0].state.name}}
     <ol>
